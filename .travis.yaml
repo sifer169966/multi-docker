@@ -1,0 +1,24 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t sifer357/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true sifer357/react-test npm test
+
+after_success:
+  - docker build -t sifer357/multi-client ./client
+  - docker build -t sifer357/multi-nginx ./nginx
+  - docker build -t sifer357/multi-server ./server
+  - docker build -t sifer357/multi-worker ./worker
+  # Log in to the docker CLI
+  # Echo docker password here it will hold password then emit it to input to the next comment that pipe | 
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker -t sifer357/multi-client
+  - docker -t sifer357/multi-nginx
+  - docker -t sifer357/multi-server
+  - docker -t sifer357/multi-worker
