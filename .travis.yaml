@@ -22,3 +22,6 @@ after_success:
   - docker -t sifer357/multi-nginx
   - docker -t sifer357/multi-server
   - docker -t sifer357/multi-worker
+
+  # added comment
+  
