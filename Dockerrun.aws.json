@@ -6,21 +6,24 @@
             "image":"sifer357/multi-client",
             "hostname":"client",
             "essential":false,
-            "memory": 128
+            "memory": 128,
+            "cpu": 1
         },
         {
             "name":"server",
             "image":"sifer357/multi-server",
             "hostname":"api",
             "essential":false,
-            "memory": 128
+            "memory": 128,
+            "cpu": 1
         },
         {
             "name":"worker",
             "image":"sifer357/multi-worker",
             "hostname":"worker",
             "essential":false,
-            "memory": 128
+            "memory": 128,
+            "cpu": 1
         },
         {
             "name":"nginx",
@@ -33,7 +36,8 @@
                 }
             ],
             "links":["client", "server"],
-            "memory": 128
+            "memory": 128,
+            "cpu": 1
         }
     ]
 }
