@@ -7,9 +7,11 @@
             "hostname":"client",
             "essential":false,
             "memory": 128,
-            "command" : [
+            "command": [
+                "tail",
+                "-f",
                 "/bin/bash"
-               ]
+              ]
         },
         {
             "name":"server",
@@ -17,9 +19,11 @@
             "hostname":"api",
             "essential":false,
             "memory": 128,
-            "command" : [
+            "command": [
+                "tail",
+                "-f",
                 "/bin/bash"
-               ]
+              ]
         },
         {
             "name":"worker",
@@ -27,9 +31,11 @@
             "hostname":"worker",
             "essential":false,
             "memory": 128,
-            "command" : [
+            "command": [
+                "tail",
+                "-f",
                 "/bin/bash"
-               ]
+              ]
         },
         {
             "name":"nginx",
@@ -43,9 +49,11 @@
             ],
             "links":["client", "server"],
             "memory": 128,
-            "command" : [
+            "command": [
+                "tail",
+                "-f",
                 "/bin/bash"
-               ]
+              ]
         }
     ]
 }
