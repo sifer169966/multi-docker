@@ -1,5 +1,14 @@
-push-images:
+
+.PHONY: build
+build:
+	docker build -t sifer357/multi-client ./client
+  	docker build -t sifer357/multi-nginx ./nginx
+  	docker build -t sifer357/multi-server ./server
+  	docker build -t sifer357/multi-worker ./worker
+
+
+push:
 	docker push sifer357/multi-client
   	docker push sifer357/multi-nginx
   	docker push sifer357/multi-server
-  	sdocker push sifer357/multi-worker
+  	docker push sifer357/multi-worker
